@@ -22,16 +22,17 @@ function Ball(x, y, velX, velY, color, size) {
   this.size = size;
 }
 
-// drawing the ball
+//Drawing the Ball
 
 Ball.prototype.draw = function () {
   ctx.beginPath();
   ctx.fillStyle = this.color;
   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
   ctx.fill();
+
 }
 
-// Update the ball's data
+// Update the balls Data
 
 Ball.prototype.update = function() {
   if ((this.x + this.size) >= width) {
@@ -54,15 +55,15 @@ Ball.prototype.update = function() {
   this.y += this.velY;
 }
 
-// Create space to store and populate balls
+// Create a place to store balls
 
 let balls = [];
 
 while (balls.length < 25) {
   let size = random(10,20);
   let ball = new Ball(
-    //ball position alwasys drawn at least one ball width
-    //away from the edge of the canvas, to aviod drawing errors
+    //ball position always drawn at least one ball width
+    //aways from the edge of the canvas, to avoid drawing errors
     random(0 + size, width - size),
     random(0 + size, height - size),
     random(-7,7),
